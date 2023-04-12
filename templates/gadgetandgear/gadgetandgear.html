@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static%}
+
+
+{% block content%}
+<section id="hero" class="d-flex align-items-center justify-content-center">
+  <div class="container" data-aos="fade-up">
+    <img src="{% static 'assets/img/gadgetandgear.png' %}" height=17% width=17%> <br> <br>
+  <h3 style="color:white;"> Search anything on Gadget & Gear! </h3>
+  <section>
+    <div>
+        <form action="{% url 'gng_dataset' %}" class="search" method='GET'>
+          <div class="input-group w-100">
+              <input type="text" class="form-control" style="width:50%;" placeholder="e.g. Xiaomi Earphone" name="keyword">
+    
+              <div class="input-group-append">
+                <button class="btn btn-secondary" type="submit">Search </button>
+              </div>
+            </div>
+        </form> <!-- search-wrap .end// -->
+      </div> <!-- col.// -->
+    </section>
+
+</div>
+</section>
+
+{% endblock %}

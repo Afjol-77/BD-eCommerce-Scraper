@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+        <div class="col-xl-6 col-lg-8">
+          <h1>BD eCommerce Scraper<span>.</span></h1>
+          <h2>Get product information from multiple eCommerce sites</h2>
+        </div>
+      </div>
+
+      <div class="row gy-4 mt-5 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <a href="{% url 'evaly' %}"> <img src="{% static 'assets/img/evaly.jpg' %}" height=70% width=70%> </img> </a>
+            <h3><a href="{% url 'evaly' %}">Evaly</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <a href="{% url 'gng' %}"> <img src="{% static 'assets/img/gadgetandgear.png' %}" height=70% width=70%> </img> </a>
+            <h3><a href="{% url 'gng' %}">Gadget and Gear</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <a href="{% url 'bdshop' %}"> <img src="{% static 'assets/img/bdshop.jpg' %}" height=50% width=90%> </img> </a>
+            <h3><a href="{% url 'bdshop' %}">BD Shop</a></h3>
+          </div>
+        </div>
+        <div class="col-xl-2 col-md-4">
+          <div class="icon-box">
+            <a href="{% url 'multiple' %}"> <img src="{% static 'assets/img/multiple.png' %}" height=50% width=90%> </img> </a>
+            <h3><a href="{% url 'multiple' %}">Multiple Sites</a></h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row">
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
+            <img src="{% static 'assets/img/abt.png' %}" class="img-fluid" alt="" style="border-radius:2%;">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right" data-aos-delay="100">
+            <h3>How to Use</h3>
+            <p class="fst-italic">
+              BD eCommerce Scraper is a tool to get product information like product title, price, image, URL, site etc. from multiple e-commerce sites.
+              <br> <br>
+              You can scrap for individual sites as well as for multiple sites, which may help you in different ways like finding the lowest price of any product/category among those sites or using datasets for multiple purposes.
+            
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Select individual site or multiple sites scraper</li>
+              <li><i class="ri-check-double-line"></i> Search your keyword </li>
+              <li><i class="ri-check-double-line"></i> Download your data in JSON/CSV format</li>
+            </ul>
+            <p>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+{% endblock %}

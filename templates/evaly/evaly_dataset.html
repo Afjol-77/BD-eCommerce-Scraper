@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static%}
+
+
+{% block content%}
+<section id="hero" class="d-flex align-items-center justify-content-center">
+    <div class="container" data-aos="fade-up">
+        <h1 style="color:white;"> Successfully crawled Data! </h1>
+        <br>
+        <br>
+        <a href="media/evaly_dataset.json" class="btn btn-success btn-lg" style="color:white;">View JSON File</a>
+        <a href="media/evaly_dataset.json" download class="btn btn-success btn-lg" style="color:white;"> Download JSON File </a>
+        <a href="media/evaly_dataset.csv" download class="btn btn-success btn-lg" style="color:white;">Download CSV File</a>
+    </div>
+</section>
+{% endblock %}
