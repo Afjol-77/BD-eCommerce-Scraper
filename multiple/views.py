@@ -114,6 +114,7 @@ def bdshop_dataset(request):
 def gadgetandgear_dataset(request):
 	if 'keyword' in request.GET:
 		keyword = request.GET['keyword']
+
 	
 	for i in range(1,10):
 		site_url = "https://gadgetandgear.com/search?keyword="+keyword+"&page="+str(i)
@@ -130,12 +131,11 @@ def gadgetandgear_dataset(request):
 		  
 		soup = BeautifulSoup(webpage, "lxml")
 		box = soup.find("div", class_="col-12 mt-3 px-lg-0")
-
 		titles = box.find_all("p", class_ ="product-name d-block mb-0")
 		prices = box.find_all("p",class_ ="product-price text-bold mb-0")
 		images = box.find_all("img")
 		urls = box.find_all("a")
-
+		
 		for j in  range(0, len(titles)):
 			title = titles[j].text
 			price = prices[j].text.strip()
@@ -156,7 +156,7 @@ def gadgetandgear_dataset(request):
 			image = images[j].get("data-src")
 			url = urls[j].get("href")
 			site = "GadgetandGear"
-			
+
 			gng_title.append(title)
 			gng_price.append(price)
 			gng_image.append(image)
@@ -169,7 +169,6 @@ def gadgetandgear_dataset(request):
 			object["Product URL"] = url
 			object["Site"] = site
 			multiple_result.append(object)
-
 	time.sleep(1)
 
 evaly_title = []
@@ -202,7 +201,7 @@ def multiple_dataset(request):
 
 	with open("media/multiple_dataset.json", "w") as outfile:
 		outfile.write(final)
-	
+
 	evaly_dict = {"Product Title":evaly_title ,"Price": evaly_price, "Image": evaly_image, "Product URL": evaly_url, "Site": evaly_site}
 	evaly_df = pd.DataFrame(evaly_dict)
 	gng_dict = {"Product Title":gng_title ,"Price": gng_price, "Image": gng_image, "Product URL": gng_url, "Site": gng_site}
