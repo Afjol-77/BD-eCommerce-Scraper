@@ -7,7 +7,6 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import json
 
-
 from django.shortcuts import render
 import os
 
@@ -30,7 +29,7 @@ def gadgetandgear_dataset(request):
 		r = requests.head(site_url, allow_redirects=True)
 		if r.status_code != 200:
 			break
-    
+
 		while True:
 			try:
 				webpage = requests.get(site_url).text
@@ -44,20 +43,22 @@ def gadgetandgear_dataset(request):
 		images = box.find_all("img")
 		urls = box.find_all("a")
 
-		for j in  range(0, len(titles)):
+		for j in range(0,len(titles)):
 			title = titles[j].text
 			price = prices[j].text.strip()
 			price = price.translate({ord('\n'): None})
-			pos = 0
-			cnt = 0
-			for k in range(0, len(price)-1):
-				if price[k] == 'T':
+			pos = 1
+			cnt = 1
+			for k in range(0,len(price)):
+				if price[k]=='T':
 					cnt += 1
-				if cnt == 2:
-					pos = k
+				if cnt==3:
+					pos=k
 					break
-			if cnt == 2:
+			if cnt==3:
 				price = price[:pos]
+			else:
+				price = price
 			price = price.translate({ord(','): None})
 			price = price[4:]
 			price = int(float(price))
@@ -84,14 +85,14 @@ def gadgetandgear_dataset(request):
 
 	sorted_result = sorted(gng_result, key=lambda d: d['Price'])
 	for i in sorted_result:
-		i['Price'] = "Tk "+str(i['Price'])
+		i['Price'] = "Tk "+ str(i['Price'])
 	final = json.dumps(sorted_result, indent=2)
 
 	with open("media/gng_dataset.json", "w") as outfile:
 		outfile.write(final)
 
 
-	gng_dict = {"Product Title":gng_title ,"Price": gng_price, "Image": gng_image, "Product URL": gng_url, "Site": gng_site}
+	gng_dict = {"Product Title": gng_title ,"Price": gng_price, "Image": gng_image, "Product URL": gng_url, "Site": gng_site}
 	gng_df = pd.DataFrame(gng_dict)
 	sorted_df = gng_df.sort_values(by=['Price'], ascending=True)
 	sorted_df = sorted_df.reset_index(drop=True)

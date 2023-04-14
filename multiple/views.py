@@ -32,7 +32,6 @@ def evaly_dataset(request):
 				break
 			except:
 				time.sleep(10)
-		  
 		soup = BeautifulSoup(webpage, "lxml")
 		box = soup.find("div", class_="flex gap-4")
 
@@ -79,7 +78,7 @@ def bdshop_dataset(request):
 				break
 			except:
 				time.sleep(10)
-		  
+		
 		soup = BeautifulSoup(webpage, "lxml")
 
 		titles = soup.find_all("h2", class_ ="product name product-item-name")
@@ -128,7 +127,7 @@ def gadgetandgear_dataset(request):
 				break
 			except:
 				time.sleep(10)
-		  
+
 		soup = BeautifulSoup(webpage, "lxml")
 		box = soup.find("div", class_="col-12 mt-3 px-lg-0")
 		titles = box.find_all("p", class_ ="product-name d-block mb-0")
@@ -171,6 +170,12 @@ def gadgetandgear_dataset(request):
 			multiple_result.append(object)
 	time.sleep(1)
 
+	
+gng_title = []
+gng_price = []
+gng_image = []
+gng_url = []
+gng_site = []
 evaly_title = []
 evaly_price = []
 evaly_image = []
@@ -181,11 +186,7 @@ bdshop_price = []
 bdshop_image = []
 bdshop_url = []
 bdshop_site = []
-gng_title = []
-gng_price = []
-gng_image = []
-gng_url = []
-gng_site = []
+
 multiple_result= []
 
 
@@ -204,8 +205,10 @@ def multiple_dataset(request):
 
 	evaly_dict = {"Product Title":evaly_title ,"Price": evaly_price, "Image": evaly_image, "Product URL": evaly_url, "Site": evaly_site}
 	evaly_df = pd.DataFrame(evaly_dict)
+	
 	gng_dict = {"Product Title":gng_title ,"Price": gng_price, "Image": gng_image, "Product URL": gng_url, "Site": gng_site}
 	gng_df = pd.DataFrame(gng_dict)
+	
 	bdshop_dict = {"Product Title":bdshop_title ,"Price": bdshop_price, "Image": bdshop_image, "Product URL": bdshop_url, "Site": bdshop_site}
 	bdshop_df = pd.DataFrame(bdshop_dict)
 
