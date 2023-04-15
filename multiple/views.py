@@ -39,10 +39,12 @@ def evaly_dataset(request):
 		prices = box.find_all("p",class_ ="text-sm font-medium text-gray-800 md:text-lg")
 		images = box.find_all("img")
 		urls = box.find_all("a")
+		if len(titles)==0:
+			return
 
 		for j in  range(0, len(titles)):
 			title = titles[j].text
-			price = int(prices[j].text[1:])
+			price = int(float(prices[j].text[1:]))
 			image = images[j].get("src")
 			url = urls[j].get("href")
 			f_url = "https://evaly.com.bd"+url
@@ -60,7 +62,7 @@ def evaly_dataset(request):
 			object["Site"] = site
 			multiple_result.append(object)
 
-	time.sleep(1)
+	time.sleep(0.2)
 
 def bdshop_dataset(request):
 	if 'keyword' in request.GET:
@@ -85,7 +87,8 @@ def bdshop_dataset(request):
 		prices = soup.find_all("span", {"data-price-type": "finalPrice"})
 		images = soup.find_all("span", class_="main-photo")
 		urls = soup.find_all("a", class_="product-item-link")
-
+		if len(titles)==0:
+			return
 		for j in  range(0, len(titles)):
 			title = titles[j].text.replace("&nbsp;", " ")
 			price = prices[j].text[1:]
@@ -107,7 +110,7 @@ def bdshop_dataset(request):
 			object["Site"] = site
 			multiple_result.append(object)
 
-	time.sleep(1)
+	time.sleep(0.2)
 
 
 def gadgetandgear_dataset(request):
@@ -134,7 +137,8 @@ def gadgetandgear_dataset(request):
 		prices = box.find_all("p",class_ ="product-price text-bold mb-0")
 		images = box.find_all("img")
 		urls = box.find_all("a")
-		
+		if len(titles)==0:
+			return
 		for j in  range(0, len(titles)):
 			title = titles[j].text
 			price = prices[j].text.strip()
@@ -168,7 +172,7 @@ def gadgetandgear_dataset(request):
 			object["Product URL"] = url
 			object["Site"] = site
 			multiple_result.append(object)
-	time.sleep(1)
+	time.sleep(0.2)
 
 	
 gng_title = []
