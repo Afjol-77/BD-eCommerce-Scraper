@@ -7,9 +7,9 @@
 
 ![screenshot](https://github.com/Afjol-77/BD-eCommerce-Scraper/blob/main/media/screenshot.png?raw=true)
 
----
+<br>
 
-**Features:**
+## Features:
 * Scrap for individual ecommerce site as well as multiple sites
 * Search any keyword
 * All products will be sorted by price in ascending order
