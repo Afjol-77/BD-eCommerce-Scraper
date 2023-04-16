@@ -66,7 +66,7 @@ def evaly_dataset(request):
             object["Site"] = site
             evaly_result.append(object)
 
-    time.sleep(1)
+    time.sleep(0.2)
 
 
 
