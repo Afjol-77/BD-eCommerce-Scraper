@@ -66,7 +66,7 @@ def bdshop_dataset(request):
             object["Site"] = site
             bdshop_result.append(object)
 
-    time.sleep(1)
+    time.sleep(0.2)
 
 
 
