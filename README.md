@@ -1,9 +1,10 @@
 # BD-eCommerce-Scraper
 
 * A web application to get product information like product title, price, image, URL, site etc. from multiple e-commerce sites.
-
+ 
 [Live App](https://bd-ecommerce-scraper.afjol-77.repl.co/) <br>
 <br>
+(Currently the app is not live. Will resume shortly.)
 
 ![screenshot](https://github.com/Afjol-77/BD-eCommerce-Scraper/blob/main/media/screenshot.png?raw=true)
 
